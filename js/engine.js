@@ -25,18 +25,16 @@ function trocarImagemMonstro() {
     const img = document.querySelector('#monster img');
     if (!img) return;
 
-    // Lista de imagens melhores
     if (gameState.level >= 15) {
-        img.src = "https://pngimg.com/uploads/dragon/dragon_PNG84.png";
+        img.src = "assets/monstro4.png"; // Caminho da sua pasta
     } else if (gameState.level >= 10) {
-        img.src = "https://www.pngmart.com/files/15/Skeleton-Warrior-PNG-Clipart.png";
+        img.src = "assets/monstro3.png";
     } else if (gameState.level >= 5) {
-        img.src = "https://vignette.wikia.nocookie.net/p__/images/d/d4/Slime_Blue_Quest.png/revision/latest?cb=20151122170851&path-prefix=protagonist";
+        img.src = "assets/monstro2.png";
     } else {
-        img.src = "https://cdn-icons-png.flaticon.com/512/606/606506.png"; 
+        img.src = "assets/monstro1.png"; 
     }
 }
-
 function morrerMonstro() {
     let recompensa = gameState.level * 5;
     gameState.gold += recompensa;
