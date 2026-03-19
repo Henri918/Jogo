@@ -21,10 +21,11 @@ function aplicarDPS() {
         atualizarInterface();
     }
 }
-function atualizarImagemMonstro() {
+function trocarImagemMonstro() {
     const img = document.querySelector('#monster img');
-    if (!img) return; // Segurança caso a imagem não exista
+    if (!img) return;
 
+    // Lista de imagens melhores
     if (gameState.level >= 15) {
         img.src = "https://pngimg.com/uploads/dragon/dragon_PNG84.png";
     } else if (gameState.level >= 10) {
@@ -32,26 +33,25 @@ function atualizarImagemMonstro() {
     } else if (gameState.level >= 5) {
         img.src = "https://vignette.wikia.nocookie.net/p__/images/d/d4/Slime_Blue_Quest.png/revision/latest?cb=20151122170851&path-prefix=protagonist";
     } else {
-        // Imagem inicial (Level 1-4)
         img.src = "https://cdn-icons-png.flaticon.com/512/606/606506.png"; 
     }
 }
 
-// ATUALIZE SUA FUNÇÃO MORRERMONSTRO:
 function morrerMonstro() {
     let recompensa = gameState.level * 5;
     gameState.gold += recompensa;
     
     gameState.level++;
     
-    // Atualiza o monstro visualmente
-    atualizarImagemMonstro(); 
+    // 1. Primeiro troca a imagem
+    trocarImagemMonstro();
     
-    // Configura o novo HP
+    // 2. Depois calcula o novo HP
     gameState.monsterMaxHP = Math.floor(10 * Math.pow(1.2, gameState.level));
     gameState.monsterHP = gameState.monsterMaxHP;
     
     saveGame();
+    atualizarInterface();
 }
 function comprarUpgrade(itemKey) {
     const custo = calcularCusto(itemKey);
