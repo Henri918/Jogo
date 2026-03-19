@@ -1,11 +1,12 @@
 function atacarMonstro() {
-    // Garante que o HP não fique negativo
+    const img = document.querySelector('#monster img');
     gameState.monsterHP = Math.max(0, gameState.monsterHP - gameState.clickPower);
     
-    if (gameState.monsterHP <= 0) {
-        morrerMonstro();
-    }
-    
+    // Adiciona a classe de "hit" e remove depois de 100ms
+    img.classList.add('hit');
+    setTimeout(() => img.classList.remove('hit'), 100);
+
+    if (gameState.monsterHP <= 0) morrerMonstro();
     atualizarInterface();
 }
 
@@ -25,13 +26,13 @@ function atualizarImagemMonstro() {
     
     // Define qual imagem usar baseado no Level
     if (gameState.level >= 15) {
-        img.src = "https://cdn-icons-png.flaticon.com/512/1013/1013865.png"; // Chefão
+        img.src = "https://vignette.wikia.nocookie.net/dragonquest/images/1/1d/Dark_skeleton.png/revision/latest?cb=20151206144820"; // Chefão
     } else if (gameState.level >= 10) {
-        img.src = "https://cdn-icons-png.flaticon.com/512/433/433615.png";   // Monstro Médio
+        img.src = "https://www.pngmart.com/files/15/Skeleton-Warrior-PNG-Clipart.png";   // Monstro Médio
     } else if (gameState.level >= 5) {
-        img.src = "https://cdn-icons-png.flaticon.com/512/1236/1236413.png"; // Monstro Inicial
+        img.src = "https://vignette.wikia.nocookie.net/p__/images/d/d4/Slime_Blue_Quest.png/revision/latest?cb=20151122170851&path-prefix=protagonist"; // Monstro Inicial
     } else {
-        img.src = "https://cdn-icons-png.flaticon.com/512/606/606506.png";   // Operário (Base)
+        img.src = "https://pngimg.com/uploads/dragon/dragon_PNG84.png";   // Operário (Base)
     }
 }
 
