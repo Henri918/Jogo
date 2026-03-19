@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sky Node RPG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Sky Node <span>RPG</span></h1>
+        <div class="stats-bar">
+            <p>Ouro: <span id="gold">0</span> 💰</p>
+            <p>DPS: <span id="dps">0</span>/s ⚔️</p>
+        </div>
+    </header>
+
+    <main class="game-container">
+        <section class="click-area">
+            <div class="level-info">Level: <span id="level">1</span></div>
+            
+            <div class="hp-container">
+                <div id="hp-bar"></div>
+                <span id="hp-text">10 / 10</span>
+            </div>
+
+            <div id="monster" onclick="atacarMonstro()">
+                <img src="https://cdn-icons-png.flaticon.com/512/606/606506.png" alt="Monstro">
+            </div>
+            <p>Clique para atacar!</p>
+        </section>
+
+        <section class="shop-area">
+            <h2>Ferreiro & Taverna</h2>
+            
+            <div class="upgrade-card" onclick="comprarUpgrade('espada')">
+                <div class="info">
+                    <h3>Amolar Espada</h3>
+                    <p>+2 por clique</p>
+                </div>
+                <div class="price">Custo: <span id="preco-espada">15</span></div>
+            </div>
+
+            <div class="upgrade-card" onclick="comprarUpgrade('mercenario')">
+                <div class="info">
+                    <h3>Recrutar Mercenário</h3>
+                    <p>+1 dano por segundo</p>
+                </div>
+                <div class="price">Custo: <span id="preco-mercenario">10</span></div>
+            </div>
+        </section>
+    </main>
+    <footer style="margin-top: 30px;">
+        <button onclick="resetarJogo()" class="btn-reset">Apagar Todo o Progresso</button>
+    </footer>
+    <button onclick="resetarJogo()" class="btn-reset">Resetar Progresso</button>
+    <script src="js/gameState.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
