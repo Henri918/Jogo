@@ -23,16 +23,17 @@ function aplicarDPS() {
 }
 function atualizarImagemMonstro() {
     const img = document.querySelector('#monster img');
-    
-    // Define qual imagem usar baseado no Level
+    if (!img) return; // Segurança caso a imagem não exista
+
     if (gameState.level >= 15) {
-        img.src = "https://vignette.wikia.nocookie.net/dragonquest/images/1/1d/Dark_skeleton.png/revision/latest?cb=20151206144820"; // Chefão
+        img.src = "https://pngimg.com/uploads/dragon/dragon_PNG84.png";
     } else if (gameState.level >= 10) {
-        img.src = "https://www.pngmart.com/files/15/Skeleton-Warrior-PNG-Clipart.png";   // Monstro Médio
+        img.src = "https://www.pngmart.com/files/15/Skeleton-Warrior-PNG-Clipart.png";
     } else if (gameState.level >= 5) {
-        img.src = "https://vignette.wikia.nocookie.net/p__/images/d/d4/Slime_Blue_Quest.png/revision/latest?cb=20151122170851&path-prefix=protagonist"; // Monstro Inicial
+        img.src = "https://vignette.wikia.nocookie.net/p__/images/d/d4/Slime_Blue_Quest.png/revision/latest?cb=20151122170851&path-prefix=protagonist";
     } else {
-        img.src = "https://pngimg.com/uploads/dragon/dragon_PNG84.png";   // Operário (Base)
+        // Imagem inicial (Level 1-4)
+        img.src = "https://cdn-icons-png.flaticon.com/512/606/606506.png"; 
     }
 }
 
